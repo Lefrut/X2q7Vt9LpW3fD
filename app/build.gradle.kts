@@ -1,6 +1,12 @@
+import expr.dependencies.addLogicDependencies
+import expr.dependencies.addUiDependencies
+import expr.dependencies.implementation
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -19,7 +25,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -27,22 +33,38 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
 }
 
-dependencies {
+addLogicDependencies()
+addUiDependencies()
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+dependencies {
+    implementation(project(":core:utils"))
+    
+    implementation(project(":core:navigation"))
+    implementation(project(":core:common"))
+    implementation(project(":core:android"))
+    implementation(project(":core:navigation"))
+    implementation(project(":core:ui"))
+
+    implementation(project(":feature:bottom_menu"))
+    implementation(project(":feature:favorite"))
+    implementation(project(":feature:home"))
+    implementation(project(":feature:login"))
+    implementation(project(":feature:vacancies"))
+    implementation(project(":feature:vacancy"))
+    implementation(project(":feature:response"))
+
+    implementation(project(":data:vacancies"))
+
+    implementation(project(":domain:general"))
+
+    implementation(project(":resources"))
 }
+
