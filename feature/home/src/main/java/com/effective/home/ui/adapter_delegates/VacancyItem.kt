@@ -1,9 +1,14 @@
 package com.effective.home.ui.adapter_delegates
 
+import android.annotation.SuppressLint
+import android.content.res.ColorStateList
 import com.effective.home.databinding.VacancyItemBinding
 import com.effective.home.ui.common.HomeItem
+import com.effective.home.ui.getAttrColor
+import com.effective.resources.R
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
+import com.google.android.material.R as MaterialRes
 
 data class VacancyItem(
     val lookingNumber: String,
@@ -15,6 +20,7 @@ data class VacancyItem(
     val isFavorite: Boolean,
 ) : HomeItem
 
+@SuppressLint("PrivateResource")
 fun vacancyAdapterDelegate(
     onButtonClick: (VacancyItem) -> Unit,
     onFavoriteChange: (VacancyItem) -> Unit
@@ -44,6 +50,22 @@ fun vacancyAdapterDelegate(
                 vacancyCompany.text = item.companyName
                 vacancyExpirience.text = item.expirienceText
                 vacancyDate.text = item.publishDate
+
+                if (item.isFavorite) {
+                    vacancyFavorite.setImageResource(R.drawable.favorite_24)
+                    vacancyFavorite.imageTintList = ColorStateList.valueOf(
+                        context.getAttrColor(
+                            MaterialRes.attr.colorPrimary
+                        )
+                    )
+                } else {
+                    vacancyFavorite.setImageResource(R.drawable.favorite_border_24)
+                    vacancyFavorite.imageTintList = ColorStateList.valueOf(
+                        context.getAttrColor(
+                            MaterialRes.attr.colorOnContainer
+                        )
+                    )
+                }
             }
         }
     }

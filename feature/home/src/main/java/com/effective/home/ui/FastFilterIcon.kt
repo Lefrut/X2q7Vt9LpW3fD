@@ -98,3 +98,11 @@ fun getAttrColor(
     context.theme.resolveAttribute(secondAttrId, typedValueSecond, true)
     return typedValueFirst.data to typedValueSecond.data
 }
+
+fun Context.getAttrColor(
+    attrId: Int,
+): Int {
+    val typedValue = TypedValue()
+    theme.resolveAttribute(attrId, typedValue, true)
+    return typedValue.data
+}

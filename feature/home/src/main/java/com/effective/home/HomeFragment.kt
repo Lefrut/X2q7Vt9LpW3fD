@@ -5,10 +5,12 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.effective.home.databinding.FragmentHomeBinding
+import com.effective.home.ui.adapter_delegates.ButtonItem
 import com.effective.home.ui.decorations.BottomMarginDecoration
 import com.effective.home.ui.adapter_delegates.FastFilterListItem
 import com.effective.home.ui.adapter_delegates.HeaderTextItem
 import com.effective.home.ui.adapter_delegates.VacancyItem
+import com.effective.home.ui.adapter_delegates.buttonAdapterDelegate
 import com.effective.home.ui.decorations.HeadlineDecoration
 import com.effective.home.ui.common.HomeItem
 import com.effective.home.ui.adapter_delegates.fastFilterAdapterDelegate
@@ -51,7 +53,10 @@ class HomeFragment @Inject constructor() : Fragment(R.layout.fragment_home) {
                 onButtonClick = {
 
                 }
-            )
+            ),
+            buttonAdapterDelegate{
+
+            }
         )
     }
 
@@ -70,6 +75,7 @@ class HomeFragment @Inject constructor() : Fragment(R.layout.fragment_home) {
             add(FastFilterListItem(testFastFilterList))
             add(HeaderTextItem(getString(Res.string.vacancies_for_you)))
             addAll(testVacancyList)
+            add(ButtonItem("Еще 143 вакансии"))
         }
     }
 }

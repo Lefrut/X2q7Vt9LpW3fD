@@ -139,7 +139,6 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/favorite_border_24"
-            app:tint="?attr/colorOnContainer"
             tools:ignore="PrivateResource" />
 
     </LinearLayout>

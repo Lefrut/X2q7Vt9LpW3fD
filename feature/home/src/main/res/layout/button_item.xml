@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.button.MaterialButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="8dp"
+    android:id="@+id/button"
+    android:layout_width="match_parent"
+    android:layout_height="54dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:maxLines="1"
+    app:cornerRadius="8dp"
+    app:backgroundTint="?attr/colorPrimary"
+    android:textAppearance="?attr/textAppearanceButton1"
+    android:textColor="?attr/colorSurface"
+    >
+
+</com.google.android.material.button.MaterialButton>
