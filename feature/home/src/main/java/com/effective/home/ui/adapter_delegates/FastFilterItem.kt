@@ -11,7 +11,7 @@ import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 
 
-data class FastFilter(
+data class FastFilterItem(
     @DrawableRes
     val iconId: Int?,
     val text: String,
@@ -20,7 +20,7 @@ data class FastFilter(
 
 
 fun fastFilterAdapterDelegate(): AdapterDelegate<List<HomeItem>> {
-    return adapterDelegateViewBinding<FastFilter, HomeItem, FastFilterItemBinding>(
+    return adapterDelegateViewBinding<FastFilterItem, HomeItem, FastFilterItemBinding>(
         { layoutInflater, parent ->
             FastFilterItemBinding.inflate(
                 layoutInflater,
@@ -60,9 +60,9 @@ fun fastFilterAdapterDelegate(): AdapterDelegate<List<HomeItem>> {
 }
 
 val testFastFilterList = listOf(
-    FastFilter(R.drawable.place_24, "Вакансии рядом с вами", ""),
-    FastFilter(R.drawable.star_24, "Поднять резюме в поиске", "Поднять"),
-    FastFilter(R.drawable.list_done_24, "Временная работа и подработка", ""),
-    FastFilter(null, "Остальное", "")
+    FastFilterItem(R.drawable.place_24, "Вакансии рядом с вами", ""),
+    FastFilterItem(R.drawable.star_24, "Поднять резюме в поиске", "Поднять"),
+    FastFilterItem(R.drawable.list_done_24, "Временная работа и подработка", ""),
+    FastFilterItem(null, "Остальное", "")
 
 )

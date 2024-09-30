@@ -1,6 +1,7 @@
 import expr.dependencies.addLogicDependencies
 import expr.dependencies.addUiDependencies
 import expr.dependencies.implementation
+import org.jetbrains.kotlin.gradle.plugin.KotlinTargetHierarchy.SourceSetTree.Companion.main
 
 plugins {
     alias(libs.plugins.android.library)
@@ -44,6 +45,8 @@ addUiDependencies()
 addLogicDependencies()
 
 dependencies {
+
+
     implementation(project(":core:ui"))
     implementation(project(":core:navigation"))
     implementation(project(":resources"))

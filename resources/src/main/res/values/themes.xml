@@ -7,6 +7,7 @@
 
         <item name="colorOnBackground">@color/gray1</item>
         <item name="colorOnSurface">@color/gray2</item>
+        <item name="colorOnSurfaceVariant">@color/gray3</item>
         <item name="colorOnContainer">@color/gray4</item>
 
         <item name="colorSurface">@color/white</item>

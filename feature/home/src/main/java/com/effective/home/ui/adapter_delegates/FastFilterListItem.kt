@@ -13,18 +13,17 @@ import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 
 
 @JvmInline
-value class FastFilterList(
-    val value: List<FastFilter>
+value class FastFilterListItem(
+    val value: List<FastFilterItem>
 ) : HomeItem
 
 
 fun fastFilterListAdapterDelegate(
-    context: Context,
     vararg adapterDelegates: AdapterDelegate<List<HomeItem>>
 ): AdapterDelegate<List<HomeItem>> {
     val fastFilterListAdapter = ListDelegationAdapter(*adapterDelegates)
 
-    return adapterDelegateViewBinding<FastFilterList, HomeItem, FastFilterListItemBinding>(
+    return adapterDelegateViewBinding<FastFilterListItem, HomeItem, FastFilterListItemBinding>(
         { layoutInflater, parent ->
             FastFilterListItemBinding.inflate(
                 layoutInflater,
