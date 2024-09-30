@@ -1,0 +1,12 @@
+<resources>
+
+    <string name="app_name">HR</string>
+    <string name="search">Поиск</string>
+    <string name="favorite">Избранное</string>
+    <string name="responses">Отклики</string>
+    <string name="messages">Сообщения</string>
+    <string name="profile">Профиль</string>
+
+    <string name="search_vacancies_hint">Должность, ключевые слова</string>
+    <string name="vacancies_for_you">Вакансии для вас</string>
+</resources>

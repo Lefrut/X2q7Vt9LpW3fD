@@ -1,0 +1,37 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Application" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="backgroundColor">@color/basic_black</item>
+        <item name="android:statusBarColor">?attr/backgroundColor</item>
+        <item name="android:navigationBarColor">?attr/backgroundColor</item>
+
+        <item name="colorOnBackground">@color/gray1</item>
+        <item name="colorOnSurface">@color/gray2</item>
+        <item name="colorOnContainer">@color/gray4</item>
+
+        <item name="colorSurface">@color/white</item>
+
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryDark">@color/dark_blue</item>
+
+        <item name="colorSecondary">@color/green</item>
+        <item name="colorSecondaryVariant">@color/dark_green</item>
+
+        
+        <item name="textAppearanceHeadline1">@style/Title1</item>
+        <item name="textAppearanceHeadline2">@style/Title2</item>
+        <item name="textAppearanceHeadline3">@style/Title3</item>
+        <item name="textAppearanceHeadline4">@style/Title4</item>
+
+        <item name="textAppearanceBody1">@style/Text1</item>
+
+        <item name="textAppearanceButton1">@style/ButtonText1</item>
+        <item name="textAppearanceButton2">@style/ButtonText2</item>
+
+        <item name="textAppearanceTab">@style/TabText</item>
+        <item name="textAppearanceNumber">@style/Number</item>
+
+    </style>
+
+    <style name="Theme.Application" parent="Base.Theme.Application"/>
+</resources>

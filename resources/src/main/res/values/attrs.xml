@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="Base.Theme.Application">
+        <attr name="textAppearanceButton1" format="reference" />
+        <attr name="textAppearanceButton2" format="reference" />
+        <attr name="textAppearanceTab" format="reference" />
+        <attr name="textAppearanceNumber" format="reference" />
+
+    </declare-styleable>
+
+</resources>

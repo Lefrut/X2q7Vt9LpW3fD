@@ -76,6 +76,8 @@ fun Project.addUiDependencies() = libs.apply {
     implement("androidx-activity")
     implement("material")
     implement("androidx-constraintlayout")
+    implement("androidx-fragment-ktx")
+    implement("coil")
 }
 
 

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="134dp"
+    android:layout_height="wrap_content"
+    android:minHeight="130dp"
+    app:cardBackgroundColor="?attr/colorOnBackground"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="0dp"
+    app:contentPadding="10dp"
+    app:strokeWidth="0dp">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/fast_filter_icon_background"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="?attr/colorPrimaryDark">
+
+            <ImageView
+                android:id="@+id/fast_filter_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:scaleType="center"
+                android:src="@drawable/warning_24"
+                app:tint="?attr/colorPrimary" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/fast_filter_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textAppearance="?attr/textAppearanceHeadline4"
+            android:textColor="?attr/colorSurface" />
+
+        <TextView
+            android:id="@+id/fast_filter_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textColor="?attr/colorSecondary" />
+    </LinearLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

@@ -39,14 +39,18 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 addLogicDependencies()
 addUiDependencies()
 
 dependencies {
+
     implementation(project(":core:utils"))
-    
     implementation(project(":core:navigation"))
     implementation(project(":core:common"))
     implementation(project(":core:android"))
@@ -57,7 +61,6 @@ dependencies {
     implementation(project(":feature:favorite"))
     implementation(project(":feature:home"))
     implementation(project(":feature:login"))
-    implementation(project(":feature:vacancies"))
     implementation(project(":feature:vacancy"))
     implementation(project(":feature:response"))
 

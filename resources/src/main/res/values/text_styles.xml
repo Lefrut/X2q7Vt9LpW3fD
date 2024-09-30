@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Title1" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">22sp</item>
+        <item name="android:fontFamily">@font/sf_pro_d_semibold</item>
+    </style>
+
+    <style name="Title2" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/sf_pro_d_semibold</item>
+    </style>
+
+    <style name="Title3" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/sf_pro_d_medium</item>
+    </style>
+
+    <style name="Title4" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/sf_pro_d_medium</item>
+    </style>
+
+    <style name="Text1" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/sf_pro_d_regular</item>
+    </style>
+
+    <style name="ButtonText1" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/sf_pro_d_semibold</item>
+    </style>
+
+    <style name="ButtonText2" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/sf_pro_d_regular</item>
+    </style>
+
+    <style name="TabText" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@font/sf_pro_d_regular</item>
+    </style>
+
+    <style name="Number" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">7sp</item>
+        <item name="android:fontFamily">@font/sf_pro_d_regular</item>
+    </style>
+
+
+</resources>
