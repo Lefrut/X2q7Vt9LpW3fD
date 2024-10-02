@@ -8,7 +8,19 @@
     <string name="profile">Профиль</string>
 
     <string name="search_vacancies_hint">Должность, ключевые слова</string>
+    <string name="search_vacancies_hint_v2">Дложность по подходящим вакансиям</string>
     <string name="vacancies_for_you">Вакансии для вас</string>
+
+    <string name="by_correspondence">По соответствию</string>
+
+    <plurals name="vacancies_count">
+        <item quantity="zero">%1$d вакансий</item>
+        <item quantity="one">%1$d вакансия</item>
+        <item quantity="two">%1$d вакансии</item>
+        <item quantity="few">%1$d вакансии</item>
+        <item quantity="many">%1$d вакансий</item>
+        <item quantity="other">%1$d вакансий</item>
+    </plurals>
 
     <string name="responsed">Откликнуться</string>
 

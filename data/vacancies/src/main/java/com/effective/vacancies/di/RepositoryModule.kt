@@ -1,6 +1,8 @@
 package com.effective.vacancies.di
 
+import com.effective.general.repository.VacanciesDatabaseRepository
 import com.effective.general.repository.VacanciesRepository
+import com.effective.vacancies.repository.VacanciesDatabaseRepositoryImpl
 import com.effective.vacancies.repository.VacanciesRepositoryImpl
 import dagger.Binds
 import dagger.Module
@@ -17,5 +19,11 @@ abstract class RepositoryModule {
     abstract fun bindVacanciesRepository(
         vacanciesRepositoryImpl: VacanciesRepositoryImpl
     ): VacanciesRepository
+
+    @Singleton
+    @Binds
+    abstract fun bindVacanciesDatabaseRepository(
+        vacanciesDatabaseRepositoryImpl: VacanciesDatabaseRepositoryImpl
+    ): VacanciesDatabaseRepository
 
 }

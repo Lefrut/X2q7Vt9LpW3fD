@@ -4,7 +4,7 @@
     <item
         android:id="@+id/home"
         android:title="@string/search"
-        android:icon="@drawable/search_24dp"
+        android:icon="@drawable/search_24"
         android:enabled="true"
 
         />
@@ -16,17 +16,17 @@
     <item
         android:id="@+id/responses"
         android:title="@string/responses"
-        android:icon="@drawable/responses_24dp"
+        android:icon="@drawable/responses_24"
         android:enabled="true"/>
     <item
         android:id="@+id/messages"
         android:title="@string/messages"
-        android:icon="@drawable/messages_24dp"
+        android:icon="@drawable/messages_24"
         android:enabled="true"
         />
     <item
         android:id="@+id/profile"
         android:title="@string/profile"
-        android:icon="@drawable/profile_24dp"
+        android:icon="@drawable/profile_24"
         android:enabled="true"/>
 </menu>

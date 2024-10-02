@@ -2,6 +2,7 @@ package com.effective.vacancies.mappers
 
 import com.effective.general.model.FastFilter
 import com.effective.general.model.Vacancy
+import com.effective.vacancies.room.model.FavoriteVacancyEntity
 import com.effective.vacancies.service.model.OfferDTO
 import com.effective.vacancies.service.model.VacancyDTO
 import java.time.LocalDate
@@ -19,7 +20,7 @@ inline fun VacancyDTO.toDomain(
         house = address?.house ?: "",
         town = address?.town ?: "",
         appiledNumber = appliedNumber ?: 1,
-        companyName = company ?: "",
+        companyName = company ?: onIncorrect(),
         desritpion = description ?: "",
         experiencePreview = experience?.previewText ?: onIncorrect(),
         experience = experience.text ?: onIncorrect(),
@@ -42,7 +43,43 @@ fun OfferDTO.toDomain(
     return FastFilter(
         id =  id ?: onIncorrect(),
         link = link ?: "",
-        title = title ?: "" ,
+        title = title ?: "",
         buttonText = button?.text ?: ""
+    )
+}
+
+fun FavoriteVacancyEntity.toDomain(): Vacancy {
+    return Vacancy(
+        id = id,
+        title = title,
+        streat = "",
+        house = "",
+        town = city,
+        appiledNumber = 1,
+        companyName = companyName,
+        desritpion = "",
+        experiencePreview = expiriencePreview,
+        experience = "",
+        isFavorite = isFavorite,
+        lookingNumber = lookingNumber,
+        publishedDate = publishDate,
+        questions = emptyList(),
+        responsibilities = "",
+        salaryMax = "",
+        salaryMin = "",
+        schedules = emptyList()
+    )
+}
+
+fun Vacancy.toData(): FavoriteVacancyEntity {
+    return FavoriteVacancyEntity(
+        isFavorite = isFavorite,
+        lookingNumber = lookingNumber,
+        publishDate = publishedDate,
+        id = id,
+        expiriencePreview = experiencePreview,
+        title = title,
+        city = town,
+        companyName = companyName
     )
 }

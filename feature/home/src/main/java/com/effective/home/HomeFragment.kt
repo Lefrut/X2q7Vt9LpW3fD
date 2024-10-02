@@ -7,21 +7,24 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.effective.home.databinding.FragmentHomeBinding
+import com.effective.home.model.HomeUiState
 import com.effective.home.ui.adapter_delegates.buttonAdapterDelegate
 import com.effective.home.ui.adapter_delegates.fastFilterAdapterDelegate
 import com.effective.home.ui.adapter_delegates.fastFilterListAdapterDelegate
 import com.effective.home.ui.adapter_delegates.headlineTextAdapterDelegate
+import com.effective.home.ui.adapter_delegates.vacanciesHeaderAdapterDelegate
 import com.effective.home.ui.adapter_delegates.vacancyAdapterDelegate
 import com.effective.home.ui.common.HomeItem
-import com.effective.home.ui.common.toUi
+import com.effective.home.ui.common.toHomeUi
+import com.effective.home.ui.common.toVacanciesUi
 import com.effective.home.ui.decorations.BottomMarginDecoration
 import com.effective.home.ui.decorations.HeadlineDecoration
-import com.effective.ui.common.ScreenState
 import com.effective.ui.flow.collectWithLifecycle
 import com.effective.ui.metrics.dpRoundToPx
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+import com.effective.resources.R as Res
 
 @AndroidEntryPoint
 class HomeFragment @Inject constructor() : Fragment(R.layout.fragment_home) {
@@ -40,15 +43,31 @@ class HomeFragment @Inject constructor() : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
         val progressCircular = binding.progressCircular
-
+        val textFieldLayout = binding.textField
         createRecyclerView()
 
-        homeViewModel.screenState.collectWithLifecycle(viewLifecycleOwner) { screenState ->
-            when (screenState) {
-                ScreenState.Ready -> homeViewModel.vacanciesAndFastFilters.collect { vacanciesAndFastFilters ->
-                    val homeItems = vacanciesAndFastFilters.toUi(requireContext())
+        homeViewModel.screenState.collectWithLifecycle(viewLifecycleOwner) { uiState ->
+            when (uiState) {
+                HomeUiState.Home -> homeViewModel.vacanciesAndFastFilters.collect { vacanciesAndFastFilters ->
                     progressCircular.visibility = View.GONE
+                    val homeItems = vacanciesAndFastFilters.toHomeUi(requireContext())
                     updateRecycelerView(homeItems)
+                    textFieldLayout.setStartIconDrawable(Res.drawable.search_24)
+                    textFieldLayout.setHint(Res.string.search_vacancies_hint)
+                }
+
+                HomeUiState.Vacancies ->{
+                    binding.homeRecyclerView.scrollToPosition(0)
+                    homeViewModel.vacanciesAndFastFilters.collect { vacanciesAndFastFilters ->
+                        progressCircular.visibility = View.GONE
+                        val homeItems = vacanciesAndFastFilters.toVacanciesUi(requireContext())
+                        updateRecycelerView(homeItems)
+                        textFieldLayout.setStartIconDrawable(Res.drawable.arrow_back_24)
+                        textFieldLayout.setStartIconOnClickListener {
+                            homeViewModel.goToHome()
+                        }
+                        textFieldLayout.setHint(Res.string.search_vacancies_hint_v2)
+                    }
                 }
 
                 else -> {
@@ -66,16 +85,18 @@ class HomeFragment @Inject constructor() : Fragment(R.layout.fragment_home) {
             ),
             headlineTextAdapterDelegate(),
             vacancyAdapterDelegate(
-                onFavoriteChange = {
-
+                onFavoriteChange = { vacancyItem ->
+                    homeViewModel.changeVacancyFavorite(vacancyItem)
                 },
                 onButtonClick = {
 
+                },
+                onCardClick = {
+
                 }
             ),
-            buttonAdapterDelegate{
-
-            }
+            buttonAdapterDelegate { homeViewModel.goToVacancies() },
+            vacanciesHeaderAdapterDelegate()
         )
     }
 

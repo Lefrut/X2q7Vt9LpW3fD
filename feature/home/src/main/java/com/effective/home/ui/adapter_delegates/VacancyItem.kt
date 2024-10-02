@@ -8,7 +8,6 @@ import com.effective.home.databinding.VacancyItemBinding
 import com.effective.home.ui.common.HomeItem
 import com.effective.home.ui.getAttrColor
 import com.effective.resources.R
-import com.effective.utils.strings.stringProviderImpl
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 import java.time.format.TextStyle
@@ -49,7 +48,8 @@ data class VacancyItem(
 @SuppressLint("PrivateResource")
 fun vacancyAdapterDelegate(
     onButtonClick: (VacancyItem) -> Unit,
-    onFavoriteChange: (VacancyItem) -> Unit
+    onFavoriteChange: (VacancyItem) -> Unit,
+    onCardClick: (VacancyItem) -> Unit
 ): AdapterDelegate<List<HomeItem>> {
     return adapterDelegateViewBinding<VacancyItem, HomeItem, VacancyItemBinding>(
         { layoutInflater, parent ->
@@ -60,6 +60,9 @@ fun vacancyAdapterDelegate(
             )
         }
     ) {
+        binding.root.setOnClickListener {
+            onCardClick(item)
+        }
 
         binding.vacancyButton.setOnClickListener {
             onButtonClick(item)

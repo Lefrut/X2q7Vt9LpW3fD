@@ -21,13 +21,14 @@ fun buttonAdapterDelegate(onClick: () -> Unit): AdapterDelegate<List<HomeItem>> 
             )
         }
     ) {
-        binding.button.setOnClickListener {
-            onClick()
-        }
-
         binding.apply {
             bind {
                 button.text = item.text
+
+            }
+        }.apply {
+            button.setOnClickListener {
+                onClick()
             }
         }
     }
