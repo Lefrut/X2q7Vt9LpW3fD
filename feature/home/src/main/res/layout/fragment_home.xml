@@ -60,15 +60,30 @@
 
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/home_recycler_view"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        />
+        android:layout_height="match_parent">
 
 
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress_circular"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:indicatorColor="?attr/colorPrimary"
+            app:trackThickness="4dp"
+            android:indeterminate="true"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/home_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" />
+
+
+    </FrameLayout>
 
 
 </LinearLayout>

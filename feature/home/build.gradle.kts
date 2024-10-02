@@ -33,6 +33,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = "17"
@@ -45,9 +46,11 @@ addUiDependencies()
 addLogicDependencies()
 
 dependencies {
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
 
-
+    implementation(project(":domain:general"))
     implementation(project(":core:ui"))
     implementation(project(":core:navigation"))
+    implementation(project(":core:utils"))
     implementation(project(":resources"))
 }

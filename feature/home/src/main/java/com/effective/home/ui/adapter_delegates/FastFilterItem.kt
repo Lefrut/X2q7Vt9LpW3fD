@@ -3,13 +3,25 @@ package com.effective.home.ui.adapter_delegates
 import android.content.res.ColorStateList
 import android.view.View
 import androidx.annotation.DrawableRes
+import com.effective.general.model.FastFilter
 import com.effective.home.databinding.FastFilterItemBinding
 import com.effective.home.ui.common.HomeItem
+import com.effective.home.ui.getFastFilterIcon
 import com.effective.home.ui.getPairColorInt
+import com.effective.home.ui.getResId
 import com.effective.resources.R
+import com.effective.utils.strings.StringProviderImpl
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 
+
+fun FastFilter.toUi(): FastFilterItem {
+    return FastFilterItem(
+        iconId = getFastFilterIcon(id).getResId() ,
+        text = title,
+        buttonText = buttonText ?: ""
+    )
+}
 
 data class FastFilterItem(
     @DrawableRes
@@ -64,5 +76,4 @@ val testFastFilterList = listOf(
     FastFilterItem(R.drawable.star_24, "Поднять резюме в поиске", "Поднять"),
     FastFilterItem(R.drawable.list_done_24, "Временная работа и подработка", ""),
     FastFilterItem(null, "Остальное", "")
-
 )

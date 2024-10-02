@@ -52,7 +52,7 @@ fun Project.addLogicDependencies() {
         implement("okhttp")
         implement("okhttp-logging")
         implement("retrofit")
-        implement("retrofit-json")
+        implement("retrofit-gson")
         implement("adapter-delegates")
         implement("adapter-delegates-viewbinding")
         implement("kotlin-stdlib")

@@ -9,6 +9,7 @@ import com.effective.bottom_menu.BottomMenuFragment
 import com.effective.home.HomeFragment
 import com.effective.navigation.BottomNavigation
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 import com.effective.bottom_menu.R as BottomRes
 
 
@@ -18,7 +19,6 @@ class MainActivity : AppCompatActivity(), BottomNavigation {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         supportFragmentManager.commit {
             setReorderingAllowed(true)
             add<BottomMenuFragment>(R.id.main_container)

@@ -11,4 +11,26 @@
     <string name="vacancies_for_you">Вакансии для вас</string>
 
     <string name="responsed">Откликнуться</string>
+
+    <plurals name="viewers">
+        <item quantity="zero">Сейчас просматривают %1$d человек</item>
+        <item quantity="one">Сейчас просматривает %1$d человек</item>
+        <item quantity="two">Сейчас просматривают %1$d человека</item>
+        <item quantity="few">Сейчас просматривают %1$d человека</item>
+        <item quantity="many">Сейчас просматривают %1$d человек</item>
+        <item quantity="other">Сейчас просматривают %1$d человек</item>
+    </plurals>
+
+    <string name="published">Опубликовано %1$d %2$s</string>
+
+    <plurals name="still_vacancies">
+        <item quantity="zero">Еще %1$d вакансий</item>
+        <item quantity="one">Еще %1$d вакансии</item>
+        <item quantity="two">Еще %1$d вакансиий</item>
+        <item quantity="few">Еще %1$d вакансии</item>
+        <item quantity="many">Еще %1$d вакансий</item>
+        <item quantity="other">Еще %1$d вакансий</item>
+    </plurals>
+
+
 </resources>

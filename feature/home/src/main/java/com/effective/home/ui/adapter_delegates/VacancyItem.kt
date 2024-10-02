@@ -1,16 +1,42 @@
 package com.effective.home.ui.adapter_delegates
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.res.ColorStateList
+import com.effective.general.model.Vacancy
 import com.effective.home.databinding.VacancyItemBinding
 import com.effective.home.ui.common.HomeItem
 import com.effective.home.ui.getAttrColor
 import com.effective.resources.R
+import com.effective.utils.strings.stringProviderImpl
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
+import java.time.format.TextStyle
+import java.util.Locale
 import com.google.android.material.R as MaterialRes
 
+fun Vacancy.toUi(context: Context): VacancyItem {
+    val monthName = publishedDate.month.getDisplayName(TextStyle.FULL, Locale.getDefault())
+    val dayOfMonth = publishedDate.dayOfMonth
+
+    return VacancyItem(
+        id = id,
+        lookingNumber = context.resources.getQuantityString(
+            R.plurals.viewers,
+            lookingNumber,
+            lookingNumber
+        ),
+        title = title,
+        city = town,
+        companyName = companyName,
+        expirienceText = experiencePreview,
+        publishDate = context.getString(R.string.published, dayOfMonth, monthName),
+        isFavorite = isFavorite
+    )
+}
+
 data class VacancyItem(
+    val id: String,
     val lookingNumber: String,
     val title: String,
     val city: String,
@@ -73,6 +99,7 @@ fun vacancyAdapterDelegate(
 
 val testVacancyList = listOf(
     VacancyItem(
+        "",
         lookingNumber = "Сейчас просматривают 100 человек",
         title = "Android-разработчик",
         city = "Москва",
@@ -82,6 +109,7 @@ val testVacancyList = listOf(
         isFavorite = true
     ),
     VacancyItem(
+        "",
         lookingNumber = "Сейчас просматривает 1 человек",
         title = "Kotlin-инженер",
         city = "Санкт-Петербург",
@@ -91,6 +119,7 @@ val testVacancyList = listOf(
         isFavorite = false
     ),
     VacancyItem(
+        "",
         lookingNumber = "Сейчас просматривают 12 человек",
         title = "Разработчик мобильных приложений",
         city = "Новосибирск",
