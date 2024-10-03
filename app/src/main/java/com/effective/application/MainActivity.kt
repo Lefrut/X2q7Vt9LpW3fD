@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import com.effective.bottom_menu.BottomMenuFragment
+import com.effective.favorite.FavoriteFragment
 import com.effective.home.HomeFragment
 import com.effective.navigation.BottomNavigation
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity(), BottomNavigation {
     }
 
     override fun navigateToFavorite() {
+        switchFragment(FavoriteFragment.Singleton)
     }
 
     override fun navigateToResponses() {
@@ -55,7 +57,9 @@ class MainActivity : AppCompatActivity(), BottomNavigation {
 
     override fun prepareBottomNavigation() {
         supportFragmentManager.commit {
-            add(BottomRes.id.bottom_container, HomeFragment.Singleton)
+            add(BottomRes.id.bottom_container, FavoriteFragment.Singleton)
+            hide(FavoriteFragment.Singleton)
+            add(BottomRes.id.bottom_container, activeBottomFragment)
         }
     }
 }

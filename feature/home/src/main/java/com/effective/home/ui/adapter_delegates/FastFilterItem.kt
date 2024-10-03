@@ -10,6 +10,7 @@ import com.effective.home.ui.getFastFilterIcon
 import com.effective.home.ui.getPairColorInt
 import com.effective.home.ui.getResId
 import com.effective.resources.R
+import com.effective.ui.recycler.RecylerItem
 import com.effective.utils.strings.StringProviderImpl
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
@@ -31,8 +32,8 @@ data class FastFilterItem(
 ) : HomeItem
 
 
-fun fastFilterAdapterDelegate(): AdapterDelegate<List<HomeItem>> {
-    return adapterDelegateViewBinding<FastFilterItem, HomeItem, FastFilterItemBinding>(
+fun fastFilterAdapterDelegate(): AdapterDelegate<List<RecylerItem>> {
+    return adapterDelegateViewBinding<FastFilterItem, RecylerItem, FastFilterItemBinding>(
         { layoutInflater, parent ->
             FastFilterItemBinding.inflate(
                 layoutInflater,

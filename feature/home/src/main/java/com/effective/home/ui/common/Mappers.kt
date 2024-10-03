@@ -7,10 +7,12 @@ import com.effective.home.ui.adapter_delegates.FastFilterListItem
 import com.effective.home.ui.adapter_delegates.HeaderTextItem
 import com.effective.home.ui.adapter_delegates.VacanciesHeaderItem
 import com.effective.home.ui.adapter_delegates.toUi
+import com.effective.ui.recycler.adapters.toUi
 import com.effective.resources.R
+import com.effective.ui.recycler.RecylerItem
 
 
-fun VacanciesAndFastFilters.toHomeUi(context: Context): List<HomeItem> {
+fun VacanciesAndFastFilters.toHomeUi(context: Context): List<RecylerItem> {
     val fastFiltersUi = fastFilters.map { it.toUi() }
     val vacanciesUi = vacancies.map { it.toUi(context) }
 
@@ -31,7 +33,7 @@ fun VacanciesAndFastFilters.toHomeUi(context: Context): List<HomeItem> {
     }
 }
 
-fun VacanciesAndFastFilters.toVacanciesUi(context: Context): List<HomeItem> {
+fun VacanciesAndFastFilters.toVacanciesUi(context: Context): List<RecylerItem> {
     val vacanciesUi = vacancies.map { it.toUi(context) }
     return buildList {
         add(VacanciesHeaderItem(vacanciesUi.size))

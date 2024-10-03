@@ -14,6 +14,9 @@ import javax.inject.Singleton
 class VacanciesDatabaseRepositoryImpl @Inject constructor(
     private val vacanciesDao: VacanciesDao
 ) : VacanciesDatabaseRepository {
+    override suspend fun deleteVacancy(vacancyId: String): Result<Unit> = kotlin.runCatching {
+        vacanciesDao.deleteVacancyById(vacancyId)
+    }
 
     override suspend fun deleteVacancy(vacancy: Vacancy): Result<Unit> = kotlin.runCatching {
         vacanciesDao.deleteVacancy(vacancy.toData())

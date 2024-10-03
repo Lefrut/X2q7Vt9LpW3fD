@@ -1,13 +1,13 @@
-package com.effective.home.ui.adapter_delegates
+package com.effective.ui.recycler.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.ColorStateList
 import com.effective.general.model.Vacancy
-import com.effective.home.databinding.VacancyItemBinding
-import com.effective.home.ui.common.HomeItem
-import com.effective.home.ui.getAttrColor
 import com.effective.resources.R
+import com.effective.ui.databinding.VacancyItemBinding
+import com.effective.ui.recycler.RecylerItem
+import com.effective.ui.res.getAttrColor
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 import java.time.format.TextStyle
@@ -43,15 +43,15 @@ data class VacancyItem(
     val expirienceText: String,
     val publishDate: String,
     val isFavorite: Boolean,
-) : HomeItem
+) : RecylerItem
 
 @SuppressLint("PrivateResource")
 fun vacancyAdapterDelegate(
     onButtonClick: (VacancyItem) -> Unit,
     onFavoriteChange: (VacancyItem) -> Unit,
     onCardClick: (VacancyItem) -> Unit
-): AdapterDelegate<List<HomeItem>> {
-    return adapterDelegateViewBinding<VacancyItem, HomeItem, VacancyItemBinding>(
+): AdapterDelegate<List<RecylerItem>> {
+    return adapterDelegateViewBinding<VacancyItem, RecylerItem, VacancyItemBinding>(
         { layoutInflater, parent ->
             VacancyItemBinding.inflate(
                 layoutInflater,
@@ -99,39 +99,5 @@ fun vacancyAdapterDelegate(
         }
     }
 }
-
-val testVacancyList = listOf(
-    VacancyItem(
-        "",
-        lookingNumber = "Сейчас просматривают 100 человек",
-        title = "Android-разработчик",
-        city = "Москва",
-        companyName = "Техно Решения",
-        expirienceText = "Опыт работы 3+ года",
-        publishDate = "2024-09-25",
-        isFavorite = true
-    ),
-    VacancyItem(
-        "",
-        lookingNumber = "Сейчас просматривает 1 человек",
-        title = "Kotlin-инженер",
-        city = "Санкт-Петербург",
-        companyName = "Инновационные Лаборатории",
-        expirienceText = "Опыт работы 2+ года",
-        publishDate = "2024-09-20",
-        isFavorite = false
-    ),
-    VacancyItem(
-        "",
-        lookingNumber = "Сейчас просматривают 12 человек",
-        title = "Разработчик мобильных приложений",
-        city = "Новосибирск",
-        companyName = "AppTech",
-        expirienceText = "Опыт работы 4+ года",
-        publishDate = "2024-09-28",
-        isFavorite = true
-    )
-)
-
 
 

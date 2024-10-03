@@ -6,7 +6,7 @@ import com.effective.general.model.VacanciesAndFastFilters
 import com.effective.general.repository.VacanciesDatabaseRepository
 import com.effective.general.repository.VacanciesRepository
 import com.effective.home.model.HomeUiState
-import com.effective.home.ui.adapter_delegates.VacancyItem
+import com.effective.ui.recycler.adapters.VacancyItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

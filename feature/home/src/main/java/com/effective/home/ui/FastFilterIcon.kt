@@ -3,6 +3,7 @@ package com.effective.home.ui
 import android.content.Context
 import android.util.TypedValue
 import com.effective.resources.R
+import com.effective.ui.res.getAttrColor
 import com.google.android.material.R as MaterialRes
 
 enum class FastFilterIcon {
@@ -85,24 +86,4 @@ fun Int?.getPairColorInt(context: Context) = when (this) {
             MaterialRes.attr.colorSecondaryVariant
         )
     }
-}
-
-fun getAttrColor(
-    context: Context,
-    firstAttrId: Int,
-    secondAttrId: Int
-): Pair<Int, Int> {
-    val typedValueFirst = TypedValue()
-    context.theme.resolveAttribute(firstAttrId, typedValueFirst, true)
-    val typedValueSecond = TypedValue()
-    context.theme.resolveAttribute(secondAttrId, typedValueSecond, true)
-    return typedValueFirst.data to typedValueSecond.data
-}
-
-fun Context.getAttrColor(
-    attrId: Int,
-): Int {
-    val typedValue = TypedValue()
-    theme.resolveAttribute(attrId, typedValue, true)
-    return typedValue.data
 }

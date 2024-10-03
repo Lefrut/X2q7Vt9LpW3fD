@@ -1,12 +1,12 @@
 package com.effective.home.ui.adapter_delegates
 
-import android.content.Context
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.effective.home.databinding.FastFilterListItemBinding
 import com.effective.home.ui.common.HomeItem
-import com.effective.home.ui.decorations.RightMarginDecoration
+import com.effective.ui.recycler.decorations.RightMarginDecoration
 import com.effective.ui.metrics.dpRoundToPx
+import com.effective.ui.recycler.RecylerItem
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
@@ -19,11 +19,11 @@ value class FastFilterListItem(
 
 
 fun fastFilterListAdapterDelegate(
-    vararg adapterDelegates: AdapterDelegate<List<HomeItem>>
-): AdapterDelegate<List<HomeItem>> {
+    vararg adapterDelegates: AdapterDelegate<List<RecylerItem>>
+): AdapterDelegate<List<RecylerItem>> {
     val fastFilterListAdapter = ListDelegationAdapter(*adapterDelegates)
 
-    return adapterDelegateViewBinding<FastFilterListItem, HomeItem, FastFilterListItemBinding>(
+    return adapterDelegateViewBinding<FastFilterListItem, RecylerItem, FastFilterListItemBinding>(
         { layoutInflater, parent ->
             FastFilterListItemBinding.inflate(
                 layoutInflater,
@@ -33,15 +33,15 @@ fun fastFilterListAdapterDelegate(
         }
     ) {
         val horizontalRecyclerView = binding.horizontalRecyclerView
-        bind {
-            horizontalRecyclerView.layoutManager =
-                LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
-            horizontalRecyclerView.adapter = fastFilterListAdapter
-            fastFilterListAdapter.items = item.value
+        horizontalRecyclerView.layoutManager =
+            LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+        horizontalRecyclerView.adapter = fastFilterListAdapter
+        horizontalRecyclerView.addItemDecoration(
+            RightMarginDecoration(8.dpRoundToPx(context))
+        )
 
-            horizontalRecyclerView.addItemDecoration(
-                RightMarginDecoration(8.dpRoundToPx(context))
-            )
+        bind {
+            fastFilterListAdapter.items = item.value
         }
 
     }

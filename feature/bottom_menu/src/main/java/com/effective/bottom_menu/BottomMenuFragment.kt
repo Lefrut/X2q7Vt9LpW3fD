@@ -30,9 +30,7 @@ class BottomMenuFragment : Fragment(R.layout.fragment_bottom_menu) {
 
             }
 
-            R.id.favorite -> {
-
-            }
+            R.id.favorite -> { bottomNavController.navigateToFavorite() }
 
             R.id.messages -> {
 

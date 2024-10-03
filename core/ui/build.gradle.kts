@@ -1,5 +1,6 @@
 import expr.dependencies.addLogicDependencies
 import expr.dependencies.addUiDependencies
+import expr.dependencies.implementation
 
 plugins {
     alias(libs.plugins.android.library)
@@ -31,11 +32,22 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = "17"
     }
+
+    buildFeatures.viewBinding = true
 }
 
 addUiDependencies()
 addLogicDependencies()
+
+dependencies {
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
+
+
+    implementation(project(":domain:general"))
+    implementation(project(":resources"))
+}

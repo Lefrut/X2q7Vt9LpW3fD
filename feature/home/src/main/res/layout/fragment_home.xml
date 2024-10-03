@@ -85,6 +85,24 @@
             android:orientation="vertical" />
 
 
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/floating_map_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="40dp"
+            app:backgroundTint="?attr/colorOnSurface"
+            app:cornerRadius="50dp"
+            app:strokeWidth="0dp"
+            app:icon="@drawable/map_24"
+            app:iconTint="?attr/colorSurface"
+            app:iconSize="24dp"
+            android:text="@string/map"
+            android:textAppearance="?attr/textAppearanceHeadline3"
+            android:textColor="?attr/colorSurface"
+            />
+
+
     </FrameLayout>
 
 

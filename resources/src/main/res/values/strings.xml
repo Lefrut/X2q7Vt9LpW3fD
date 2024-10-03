@@ -44,5 +44,7 @@
         <item quantity="other">Еще %1$d вакансий</item>
     </plurals>
 
+    <string name="map">Карта</string>
+
 
 </resources>

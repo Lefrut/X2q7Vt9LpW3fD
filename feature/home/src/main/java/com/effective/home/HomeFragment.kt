@@ -13,14 +13,14 @@ import com.effective.home.ui.adapter_delegates.fastFilterAdapterDelegate
 import com.effective.home.ui.adapter_delegates.fastFilterListAdapterDelegate
 import com.effective.home.ui.adapter_delegates.headlineTextAdapterDelegate
 import com.effective.home.ui.adapter_delegates.vacanciesHeaderAdapterDelegate
-import com.effective.home.ui.adapter_delegates.vacancyAdapterDelegate
-import com.effective.home.ui.common.HomeItem
+import com.effective.ui.recycler.adapters.vacancyAdapterDelegate
 import com.effective.home.ui.common.toHomeUi
 import com.effective.home.ui.common.toVacanciesUi
-import com.effective.home.ui.decorations.BottomMarginDecoration
-import com.effective.home.ui.decorations.HeadlineDecoration
+import com.effective.ui.recycler.decorations.BottomMarginDecoration
+import com.effective.ui.recycler.decorations.HeadlineDecoration
 import com.effective.ui.flow.collectWithLifecycle
 import com.effective.ui.metrics.dpRoundToPx
+import com.effective.ui.recycler.RecylerItem
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -44,12 +44,15 @@ class HomeFragment @Inject constructor() : Fragment(R.layout.fragment_home) {
         binding = FragmentHomeBinding.bind(view)
         val progressCircular = binding.progressCircular
         val textFieldLayout = binding.textField
+        val mapButton = binding.floatingMapButton
+
         createRecyclerView()
 
         homeViewModel.screenState.collectWithLifecycle(viewLifecycleOwner) { uiState ->
             when (uiState) {
                 HomeUiState.Home -> homeViewModel.vacanciesAndFastFilters.collect { vacanciesAndFastFilters ->
                     progressCircular.visibility = View.GONE
+                    mapButton.visibility = View.GONE
                     val homeItems = vacanciesAndFastFilters.toHomeUi(requireContext())
                     updateRecycelerView(homeItems)
                     textFieldLayout.setStartIconDrawable(Res.drawable.search_24)
@@ -59,9 +62,10 @@ class HomeFragment @Inject constructor() : Fragment(R.layout.fragment_home) {
                 HomeUiState.Vacancies ->{
                     binding.homeRecyclerView.scrollToPosition(0)
                     homeViewModel.vacanciesAndFastFilters.collect { vacanciesAndFastFilters ->
+                        mapButton.visibility = View.VISIBLE
                         progressCircular.visibility = View.GONE
-                        val homeItems = vacanciesAndFastFilters.toVacanciesUi(requireContext())
-                        updateRecycelerView(homeItems)
+                        val recylerItems = vacanciesAndFastFilters.toVacanciesUi(requireContext())
+                        updateRecycelerView(recylerItems)
                         textFieldLayout.setStartIconDrawable(Res.drawable.arrow_back_24)
                         textFieldLayout.setStartIconOnClickListener {
                             homeViewModel.goToHome()
@@ -71,6 +75,7 @@ class HomeFragment @Inject constructor() : Fragment(R.layout.fragment_home) {
                 }
 
                 else -> {
+                    mapButton.visibility = View.GONE
                     progressCircular.visibility = View.VISIBLE
                 }
             }
@@ -78,7 +83,7 @@ class HomeFragment @Inject constructor() : Fragment(R.layout.fragment_home) {
     }
 
 
-    private fun createHomeAdapter(): ListDelegationAdapter<List<HomeItem>> {
+    private fun createHomeAdapter(): ListDelegationAdapter<List<RecylerItem>> {
         return ListDelegationAdapter(
             fastFilterListAdapterDelegate(
                 fastFilterAdapterDelegate()
@@ -114,7 +119,7 @@ class HomeFragment @Inject constructor() : Fragment(R.layout.fragment_home) {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private fun updateRecycelerView(homeItems: List<HomeItem>) {
+    private fun updateRecycelerView(homeItems: List<RecylerItem>) {
         homeAdapter.items = homeItems
         homeAdapter.notifyDataSetChanged()
     }

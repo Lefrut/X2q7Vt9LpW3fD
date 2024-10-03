@@ -35,7 +35,19 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+
+    buildFeatures.viewBinding = true
 }
 
 addLogicDependencies()
 addUiDependencies()
+
+dependencies {
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
+
+    implementation(project(":domain:general"))
+    implementation(project(":core:ui"))
+    implementation(project(":core:navigation"))
+    implementation(project(":core:utils"))
+    implementation(project(":resources"))
+}
