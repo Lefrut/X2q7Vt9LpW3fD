@@ -24,6 +24,11 @@
 
     <string name="responsed">Откликнуться</string>
 
+    <string name="resume_for_response">Резюме для отклика</string>
+    <string name="add_cover_letter">Добавить сопроводительное</string>
+
+    <string name="your_cover_letter">Ваше сопроводительное письмо</string>
+
     <plurals name="viewers">
         <item quantity="zero">Сейчас просматривают %1$d человек</item>
         <item quantity="one">Сейчас просматривает %1$d человек</item>
@@ -45,6 +50,12 @@
     </plurals>
 
     <string name="map">Карта</string>
+
+    <string name="your_tasks">Ваши задачи</string>
+
+    <string name="employer_a_question">Задайте вопрос работодателю</string>
+    <string name="employer_a_question_desc">Он получит его с откликом на вакансию</string>
+
 
 
 </resources>

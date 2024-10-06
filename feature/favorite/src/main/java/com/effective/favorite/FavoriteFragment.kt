@@ -24,7 +24,7 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
 
 
     companion object {
-        val Singleton = FavoriteFragment()
+        const val TAG = "favorite"
     }
 
     private lateinit var binding: FragmentFavoriteBinding

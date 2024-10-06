@@ -1,6 +1,7 @@
 package com.effective.vacancies.repository
 
 import com.effective.general.model.VacanciesAndFastFilters
+import com.effective.general.model.Vacancy
 import com.effective.general.repository.VacanciesRepository
 import com.effective.utils.collections.saveMapNotNull
 import com.effective.utils.network.getServiceExceptionByCode
@@ -31,6 +32,15 @@ class VacanciesRepositoryImpl @Inject constructor(
                 throw getServiceExceptionByCode(response.code())
             }
         }
+
+    override suspend fun getVacancyById(vacancyId: String): Result<Vacancy> = kotlin.runCatching {
+        getVacanciesAndFastFiltes().onSuccess { vacanciesAndFastFilters ->
+            return@runCatching vacanciesAndFastFilters.vacancies.firstOrNull { vacancy -> vacancy.id == vacancyId }
+                ?: throw IllegalArgumentException("no current vacancy id")
+        }.onFailure { apiException -> throw apiException }
+
+        throw IllegalArgumentException("result handle error")
+    }
 
 
 }

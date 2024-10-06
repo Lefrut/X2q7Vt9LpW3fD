@@ -13,25 +13,25 @@ import com.effective.home.ui.adapter_delegates.fastFilterAdapterDelegate
 import com.effective.home.ui.adapter_delegates.fastFilterListAdapterDelegate
 import com.effective.home.ui.adapter_delegates.headlineTextAdapterDelegate
 import com.effective.home.ui.adapter_delegates.vacanciesHeaderAdapterDelegate
-import com.effective.ui.recycler.adapters.vacancyAdapterDelegate
 import com.effective.home.ui.common.toHomeUi
 import com.effective.home.ui.common.toVacanciesUi
-import com.effective.ui.recycler.decorations.BottomMarginDecoration
-import com.effective.ui.recycler.decorations.HeadlineDecoration
+import com.effective.navigation.navController
 import com.effective.ui.flow.collectWithLifecycle
 import com.effective.ui.metrics.dpRoundToPx
 import com.effective.ui.recycler.RecylerItem
+import com.effective.ui.recycler.adapters.vacancyAdapterDelegate
+import com.effective.ui.recycler.decorations.BottomMarginDecoration
+import com.effective.ui.recycler.decorations.HeadlineDecoration
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 import com.effective.resources.R as Res
 
 @AndroidEntryPoint
-class HomeFragment @Inject constructor() : Fragment(R.layout.fragment_home) {
+class HomeFragment : Fragment(R.layout.fragment_home) {
 
 
     companion object {
-        val Singleton = HomeFragment()
+        const val TAG = "home"
     }
 
     private lateinit var binding: FragmentHomeBinding
@@ -94,10 +94,10 @@ class HomeFragment @Inject constructor() : Fragment(R.layout.fragment_home) {
                     homeViewModel.changeVacancyFavorite(vacancyItem)
                 },
                 onButtonClick = {
-
+                    navController.navigateToResponse(it.title)
                 },
                 onCardClick = {
-
+                    navController.navigateToVacancy(it.id)
                 }
             ),
             buttonAdapterDelegate { homeViewModel.goToVacancies() },

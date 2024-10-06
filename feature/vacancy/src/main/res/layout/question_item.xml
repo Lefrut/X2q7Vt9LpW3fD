@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:strokeWidth="0dp"
+    app:contentPaddingTop= "6dp"
+    app:contentPaddingBottom= "6dp"
+    app:contentPaddingRight="12dp"
+    app:contentPaddingLeft="12dp"
+    app:cardBackgroundColor="?attr/colorOnSurface"
+    app:cardCornerRadius="50dp"
+    >
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/colorSurface"
+        android:textAppearance="?attr/textAppearanceHeadline4"
+        />
+
+</com.google.android.material.card.MaterialCardView>

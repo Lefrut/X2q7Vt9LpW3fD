@@ -18,7 +18,29 @@ data class Vacancy(
     val publishedDate: LocalDate,
     val questions: List<String>,
     val responsibilities: String,
-    val salaryMax: String,
+    val salaryFull: String,
     val salaryMin: String,
     val schedules: List<String>,
 )
+
+val emptyVacancy: Vacancy
+    get() = Vacancy(
+        id = "",
+        title = "",
+        streat = "",
+        house = "",
+        town = "",
+        appiledNumber = 0,
+        companyName = "",
+        desritpion = "",
+        experiencePreview = "",
+        experience = "",
+        isFavorite = false,
+        lookingNumber = 0,
+        publishedDate = LocalDate.now(),
+        questions = emptyList(),
+        responsibilities = "",
+        salaryFull = "",
+        salaryMin = "",
+        schedules = emptyList(),
+    )

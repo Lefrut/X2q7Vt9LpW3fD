@@ -29,7 +29,7 @@ inline fun VacancyDTO.toDomain(
         publishedDate = LocalDate.parse(publishedDate ?: onIncorrect()),
         questions = questions?.map { it ?: onIncorrect() } ?: onIncorrect(),
         responsibilities = responsibilities ?: "",
-        salaryMax = salary?.full ?: "",
+        salaryFull = salary?.full ?: "",
         salaryMin = salary?.short ?: "",
         schedules = schedules?.filterNotNull() ?: emptyList()
     )
@@ -65,7 +65,7 @@ fun FavoriteVacancyEntity.toDomain(): Vacancy {
         publishedDate = publishDate,
         questions = emptyList(),
         responsibilities = "",
-        salaryMax = "",
+        salaryFull = "",
         salaryMin = "",
         schedules = emptyList()
     )
