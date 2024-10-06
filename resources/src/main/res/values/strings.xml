@@ -29,6 +29,26 @@
 
     <string name="your_cover_letter">Ваше сопроводительное письмо</string>
 
+    <string name="company_location">%1$s, %2$s, %3$s</string>
+
+    <plurals name="loking_number">
+        <item quantity="zero">%1$d человек сейчас смотрят</item>
+        <item quantity="one">%1$d человек сейчас смотрит</item>
+        <item quantity="two">%1$d человека сейчас смотрят</item>
+        <item quantity="few">%1$d человека сейчас смотрят</item>
+        <item quantity="many">%1$d человек сейчас смотрят</item>
+        <item quantity="other">%1$d человек сейчас смотрят</item>
+    </plurals>
+
+    <plurals name="alredy_responded">
+        <item quantity="zero">%1$d человек уже откликнулось</item>
+        <item quantity="one">%1$d человек уже откликнулся</item>
+        <item quantity="two">%1$d человека уже откликнулось</item>
+        <item quantity="few">%1$d человека уже откликнулось</item>
+        <item quantity="many">%1$d человек уже откликнулось</item>
+        <item quantity="other">%1$d человек уже откликнулось</item>
+    </plurals>
+
     <plurals name="viewers">
         <item quantity="zero">Сейчас просматривают %1$d человек</item>
         <item quantity="one">Сейчас просматривает %1$d человек</item>
@@ -37,6 +57,8 @@
         <item quantity="many">Сейчас просматривают %1$d человек</item>
         <item quantity="other">Сейчас просматривают %1$d человек</item>
     </plurals>
+
+    <string name="expirience_vacancy">Требуемый опыт: %s</string>
 
     <string name="published">Опубликовано %1$d %2$s</string>
 

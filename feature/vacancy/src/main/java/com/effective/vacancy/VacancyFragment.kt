@@ -11,7 +11,7 @@ import com.effective.vacancy.databinding.FragmentVacancyBinding
 import com.effective.vacancy.ui.adapters.QuestionsListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
-
+import com.effective.resources.R as Res
 
 @AndroidEntryPoint
 class VacancyFragment : Fragment(R.layout.fragment_vacancy) {
@@ -41,18 +41,47 @@ class VacancyFragment : Fragment(R.layout.fragment_vacancy) {
                         if (vacancy.isFavorite) topAppBar.inflateMenu(R.menu.active_top_menu)
                         else topAppBar.inflateMenu(R.menu.inactive_top_menu)
 
+                        binding.vacancyCompany.text = vacancy.companyName
+
+                        binding.vacancyLocation.text = getString(
+                            Res.string.company_location,
+                            vacancy.town,
+                            vacancy.streat,
+                            vacancy.house
+                        )
                         binding.vacancyTitle.text = vacancy.title
                         binding.vacancyIncome.text = vacancy.salaryFull
                         binding.vacancyDesc.text = vacancy.desritpion
-                        binding.vacancyExpirience.text = vacancy.experiencePreview
+                        binding.vacancyExpirience.text =
+                            getString(Res.string.expirience_vacancy, vacancy.experience)
                         binding.vacancyResponsibilities.text = vacancy.responsibilities
-                        binding.vacancyShedules.text = vacancy.schedules.joinToString()
+                        binding.vacancyShedules.text = vacancy.schedules.mapIndexed { index, s ->
+                            if (index == 0) {
+                                s.replaceFirstChar { it.uppercaseChar() }
+                            } else s
+                        }.joinToString()
 
                         binding.questionsList.adapter = QuestionsListAdapter(
                             requireContext(),
                             R.layout.question_item,
                             vacancy.questions
                         )
+
+
+                        binding.watching.cardText.text =
+                            resources.getQuantityString(
+                                Res.plurals.loking_number,
+                                vacancy.lookingNumber,
+                                vacancy.lookingNumber
+                            )
+                        //binding.watching.cardImage.setImageResource(Res.drawable.eye_24)
+
+                        binding.responded.cardText.text = resources.getQuantityString(
+                            Res.plurals.alredy_responded,
+                            vacancy.appiledNumber,
+                            vacancy.appiledNumber
+                        )
+                        //binding.responded.cardImage.setImageResource(Res.drawable.profile_24)
 
                         binding.button.setOnClickListener {
                             navController.navigateToResponse(vacancy.title)
