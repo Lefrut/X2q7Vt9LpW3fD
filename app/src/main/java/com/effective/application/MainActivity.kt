@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity(), Navigation {
         }
         val activeFragmentTags = bottomFragmentsMap[activeBottomFragmentTag] ?: emptyList()
 
-        bottomFragmentsMap[HomeFragment.TAG] = buildList {
+        bottomFragmentsMap[activeBottomFragmentTag] = buildList {
             addAll(activeFragmentTags)
             add(tag)
         }
@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity(), Navigation {
 
         val activeFragmentTags = bottomFragmentsMap[activeBottomFragmentTag] ?: emptyList()
 
-        bottomFragmentsMap[HomeFragment.TAG] = buildList {
+        bottomFragmentsMap[activeBottomFragmentTag] = buildList {
             addAll(activeFragmentTags)
             add(ResponseFragment.TAG)
         }
@@ -118,7 +118,6 @@ class MainActivity : AppCompatActivity(), Navigation {
 
     override fun navigateBack() {
         if (bottomFragmentsMap[activeBottomFragmentTag]?.size == 0) {
-            super.onBackPressed()
             finish()
         } else {
             val tags = bottomFragmentsMap[activeBottomFragmentTag] ?: return
