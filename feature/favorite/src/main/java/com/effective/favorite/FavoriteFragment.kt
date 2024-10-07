@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.effective.favorite.databinding.FragmentFavoriteBinding
+import com.effective.navigation.navController
 import com.effective.ui.flow.collectWithLifecycle
 import com.effective.ui.metrics.dpRoundToPx
 import com.effective.ui.recycler.RecylerItem
@@ -69,10 +70,10 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
                     favoriteViewModel.changeVacancyFavorite(vacancyItem)
                 },
                 onButtonClick = {
-
+                    navController.navigateToResponse(it.title)
                 },
                 onCardClick = {
-
+                    navController.navigateToVacancy(it.id)
                 }
             )
         )

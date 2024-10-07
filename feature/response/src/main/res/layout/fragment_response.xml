@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/backgroundColor"
+    android:theme="@style/Theme.Application"
     tools:context=".ResponseFragment">
 
 
@@ -103,8 +104,9 @@
             android:inputType="textMultiLine"
             android:scrollbars="vertical"
             android:textAppearance="?attr/textAppearanceBody1"
-            android:textColor="?attr/colorOnSurfaceVariant"
-            android:textColorHighlight="?attr/colorPrimary" />
+            android:textColor="?attr/colorSurface"
+            android:textColorHighlight="?attr/colorPrimary"
+            android:textColorHint="?attr/colorOnSurfaceVariant"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button"

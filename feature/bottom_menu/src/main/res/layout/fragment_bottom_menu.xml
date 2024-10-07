@@ -35,8 +35,6 @@
         app:itemTextAppearanceActive="?attr/textAppearanceTab"
         app:itemTextAppearanceInactive="?attr/textAppearanceTab"
         />
-    <!--    app:itemPaddingBottom="18dp"-->
-    <!--    app:itemPaddingTop="18dp"-->
 
 
 </LinearLayout>

@@ -18,6 +18,8 @@
         <item name="colorSecondary">@color/green</item>
         <item name="colorSecondaryVariant">@color/dark_green</item>
 
+        <item name="colorError">#FF0000</item>
+
         
         <item name="textAppearanceHeadline1">@style/Title1</item>
         <item name="textAppearanceHeadline2">@style/Title2</item>

@@ -2,6 +2,8 @@ package com.effective.vacancy
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.effective.navigation.navController
@@ -74,14 +76,14 @@ class VacancyFragment : Fragment(R.layout.fragment_vacancy) {
                                 vacancy.lookingNumber,
                                 vacancy.lookingNumber
                             )
-                        //binding.watching.cardImage.setImageResource(Res.drawable.eye_24)
+                        binding.watching.cardImage.setImageResource(Res.drawable.eye_24)
 
                         binding.responded.cardText.text = resources.getQuantityString(
                             Res.plurals.alredy_responded,
                             vacancy.appiledNumber,
                             vacancy.appiledNumber
                         )
-                        //binding.responded.cardImage.setImageResource(Res.drawable.profile_24)
+                        binding.responded.cardImage.setImageResource(Res.drawable.profile_24)
 
                         binding.button.setOnClickListener {
                             navController.navigateToResponse(vacancy.title)

@@ -47,6 +47,8 @@ addLogicDependencies()
 dependencies {
 
     implementation(project(":core:navigation"))
+    implementation(project(":core:ui"))
+    implementation(project(":domain:general"))
     implementation(project(":resources"))
 
 }
