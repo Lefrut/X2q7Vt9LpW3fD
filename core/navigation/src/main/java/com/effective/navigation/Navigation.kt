@@ -4,6 +4,8 @@ import androidx.fragment.app.Fragment
 
 interface Navigation {
 
+    fun navigateToBottomMenu()
+
     fun navigateToVacancy(id: String)
     fun navigateToHome()
     fun navigateToFavorite()

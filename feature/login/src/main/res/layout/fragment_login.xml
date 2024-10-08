@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:theme="@style/Theme.Application"
+    tools:context=".LoginFragment">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/log_personal_account"
+        android:textAppearance="?attr/textAppearanceHeadline2"
+        android:textColor="?attr/colorSurface" />
+
+
+    <Space
+        android:id="@+id/top_space"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/input_card"
+        style="@style/MaterialCard.Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/search_work"
+                android:textAppearance="?attr/textAppearanceHeadline3"
+                android:textColor="?attr/colorSurface" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp"
+                android:hint="@string/write_email"
+                android:paddingVertical="0dp"
+                app:boxBackgroundColor="?attr/colorOnSurface"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxStrokeColor="@android:color/transparent"
+                app:boxStrokeErrorColor="@android:color/transparent"
+                app:boxStrokeWidth="0dp"
+                app:cursorColor="?attr/colorSurface"
+                app:endIconMode="none"
+                app:endIconTint="?attr/colorSurface"
+                app:errorIconDrawable="@null"
+                app:errorTextAppearance="?attr/textAppearanceButton2"
+                app:errorTextColor="?attr/colorError"
+                app:expandedHintEnabled="true"
+                app:hintTextAppearance="?attr/textAppearanceBody1"
+                app:hintTextColor="?attr/colorOnContainer"
+                tools:ignore="PrivateResource">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:inputType="text"
+                    android:paddingVertical="0dp"
+                    android:singleLine="true"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:textColor="?attr/colorSurface" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/continue_button"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingVertical="0dp"
+                android:text="@string/_continue_"
+                android:textAppearance="?attr/textAppearanceButton2"
+                android:textColor="?attr/colorSurface"
+                app:cornerRadius="8dp"
+                app:strokeWidth="0dp" />
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bottom_card"
+        style="@style/MaterialCard.Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/search_worker"
+                android:textAppearance="?attr/textAppearanceHeadline3"
+                android:textColor="?attr/colorSurface" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/add_vacancies"
+                android:textAppearance="?attr/textAppearanceButton2"
+                android:textColor="?attr/colorSurface" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="16dp"
+                android:paddingVertical="0dp"
+                android:text="@string/i_search_workers"
+                android:textAppearance="?attr/textAppearanceButton2"
+                android:textColor="?attr/colorSurface"
+                app:backgroundTint="?attr/colorSecondary"
+                app:cornerRadius="50dp"
+                app:strokeWidth="0dp" />
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <LinearLayout
+        android:id="@+id/code_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/code_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceHeadline2"
+            android:textColor="?attr/colorSurface" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/code_stage_desc"
+            android:textAppearance="?attr/textAppearanceHeadline3"
+            android:textColor="?attr/colorSurface" />
+
+        <com.mukeshsolanki.OtpView
+            android:id="@+id/otp_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:inputType="number"
+            android:itemBackground="@drawable/otp_item"
+            android:textAppearance="?attr/textAppearanceHeadline2"
+            android:textColor="?attr/colorSurface"
+            app:OtpCursorColor="?attr/colorSurface"
+            app:OtpItemCount="4"
+            app:OtpItemHeight="48dp"
+            app:OtpItemRadius="8dp"
+            app:OtpItemSpacing="8dp"
+            app:OtpItemWidth="48dp"
+            app:OtpLineColor="?attr/colorOnSurface"
+            app:OtpViewType="rectangle"
+            android:hint="@string/otp_code_hint"
+            android:textColorHint="?attr/colorOnSurfaceVariant"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/code_stage_button"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:paddingVertical="0dp"
+            android:text="@string/_continue_"
+            android:textAppearance="?attr/textAppearanceButton2"
+            android:textColor="?attr/colorSurface"
+            app:cornerRadius="8dp"
+            app:strokeWidth="0dp" />
+
+
+    </LinearLayout>
+
+
+    <Space
+        android:id="@+id/bottom_space"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1.5" />
+
+</LinearLayout>

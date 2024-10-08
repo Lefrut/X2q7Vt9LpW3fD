@@ -4,6 +4,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -11,11 +12,11 @@ import kotlinx.coroutines.launch
 fun <T> Flow<T>.collectWithLifecycle(
     lifecycleOwner: LifecycleOwner,
     state: Lifecycle.State = Lifecycle.State.STARTED,
-    action: suspend (value: T) -> Unit
+    action: suspend CoroutineScope.(value: T) -> Unit
 ) {
     lifecycleOwner.lifecycleScope.launch {
         lifecycleOwner.repeatOnLifecycle(state) {
-            collectLatest(action)
+            collectLatest { action(it) }
         }
     }
 }

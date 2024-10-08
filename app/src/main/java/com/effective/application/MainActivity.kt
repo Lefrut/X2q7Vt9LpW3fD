@@ -11,6 +11,7 @@ import androidx.fragment.app.commit
 import com.effective.bottom_menu.BottomMenuFragment
 import com.effective.favorite.FavoriteFragment
 import com.effective.home.HomeFragment
+import com.effective.login.LoginFragment
 import com.effective.navigation.Navigation
 import com.effective.response.ResponseFragment
 import com.effective.vacancy.VacancyFragment
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity(), Navigation {
         setContentView(R.layout.activity_main)
         supportFragmentManager.commit {
             setReorderingAllowed(true)
-            add<BottomMenuFragment>(R.id.main_container)
+            add<LoginFragment>(R.id.main_container)
         }
     }
 
@@ -35,6 +36,14 @@ class MainActivity : AppCompatActivity(), Navigation {
         HomeFragment.TAG to listOf(),
         FavoriteFragment.TAG to listOf()
     )
+
+    override fun navigateToBottomMenu() {
+        supportFragmentManager.popBackStack()
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            add<BottomMenuFragment>(R.id.main_container)
+        }
+    }
 
     override fun navigateToVacancy(id: String) {
         val bundle = bundleOf("vacancy_id" to id)
