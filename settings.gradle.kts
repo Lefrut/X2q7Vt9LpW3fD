@@ -21,7 +21,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "X2q7Vt9LpW3fD"
+rootProject.name = "Effective mobile - test task"
 include(":app")
 include(":feature:login")
 include(":feature:home")
